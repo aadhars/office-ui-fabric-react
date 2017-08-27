@@ -1,0 +1,77 @@
+@import '../../common/common';
+
+// Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE in the project root for license information.
+
+//
+// Office UI Fabric
+// --------------------------------------------------
+// Accordion styles
+
+.accordion-section {
+
+    .title-container {
+        margin: 16px 0px;
+
+        div.chevron {
+            margin-left: 6px;
+            margin-right: 0px;
+            font-size: $fontSizeML;
+            vertical-align: top;
+            padding-top: 4px; // not moving to common as this is only used in Section headers of accordion
+        }
+
+        .description-container {
+            margin-top: 2px;
+            font-size: $fontSize;
+            cursor: default;
+        }
+
+        .accordion-section-header {
+            width: 100%;
+            @include input-display-flex;
+            font-size: $fontSizeML;
+            white-space: nowrap;
+            font-weight: $fontWeightRegular;
+            cursor: pointer;
+            outline: none;
+            @include TextOverflowEllipsis();
+            @include outline-focus-ring();
+
+            .accordion-section-label {
+                font-size: $fontSizeML;
+                max-width: 90%;
+                @include TextOverflowEllipsis();
+            }
+
+            .accordion-section-icon {
+                padding-right: 7px;
+                vertical-align: top;
+                padding-top: 2px;
+            }
+
+            .accordion-section-line {
+                padding: 6px 0px 0px 10px;
+                flex-grow: 1;
+
+                hr {
+                    @include horizontal-line
+                }
+            }
+
+            .accordion-error {
+                color: $accent1;
+                font-size: $fontSizeML;
+            }
+        }
+    }
+
+    .content-container {
+        margin-left: 0;
+    }
+
+    .empty-separator {
+        border-bottom: 1px solid $secondary-light-2;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+}
