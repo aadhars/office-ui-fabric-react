@@ -45,16 +45,16 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
     const accordionSectionDescription: string = this._getSectionDescription();
 
     return (
-      <div className={css("accordion-section", this.props.className)}
+      <div className={css("accordionSection", this.props.className)}
         ref={this._resolveRef("_contentContainer")}>
         <div
-          className="title-container"
+          className="titleContainer"
           role="heading"
           aria-expanded={this.state.expanded}>
 
           <div
             tabIndex={0}
-            className="accordion-section-header"
+            className="accordionSectionHeader"
             role="button"
             onClick={this._toggle}
             onKeyDown={this._handleKeyPress}
@@ -68,17 +68,17 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
             <div className={chevronIconClass} />
             {
               this.props.addSectionHeaderLine &&
-              <div className="accordion-section-line">
+              <div className="accordionSectionLine">
                 <hr />
               </div>
             }
           </div>
-          {accordionSectionDescription && <div className="description-container">{accordionSectionDescription}</div>}
+          {accordionSectionDescription && <div className="descriptionContainer">{accordionSectionDescription}</div>}
         </div>
         {
           this.state.expanded &&
           <div
-            className="content-container"
+            className="contentContainer"
             aria-labelledby={this._titleId}>
             {this.props.content}
           </div>
@@ -137,7 +137,7 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
 
   private _getDefaultSectionHeaderLabel = (props: IAccordionSectionProps): JSX.Element => {
     return (
-      <div className="accordion-section-label">
+      <div className="accordionSectionLabel">
         {this._getBowtieHeader(props)}
         <TooltipHost content={props.headerLabel} overflowMode={TooltipOverflowMode.Parent}>
           {props.headerLabel}
@@ -154,4 +154,4 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
 }
 
 const Separator = (): JSX.Element =>
-  <div className="empty-separator" />;
+  <div className="emptySeparator" />;

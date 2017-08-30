@@ -11,15 +11,15 @@ import { FontClassNames } from '../../Styling';
 const SearchBoxSmallExampleCode = require('!raw-loader!office-ui-fabric-react/src/components/SearchBox/examples/SearchBox.Small.Example.tsx') as string;
 const SearchBoxFullSizeExampleCode = require('!raw-loader!office-ui-fabric-react/src/components/SearchBox/examples/SearchBox.FullSize.Example.tsx') as string;
 
-export class AccordionPahe extends React.Component<IComponentDemoPageProps, {}> {
+export class AccordionPage extends React.Component<IComponentDemoPageProps, {}> {
   public render() {
     return (
       <ComponentPage
-        title='SearchBox'
-        componentName='SearchBoxExample'
+        title='Accordion'
+        componentName='AccordionExample'
         exampleCards={
           <div>
-            <ExampleCard title='SearchBox' code={ SearchBoxSmallExampleCode }>
+            <ExampleCard title='Accordion' code={ SearchBoxSmallExampleCode }>
               <AccordionBasicExample />
             </ExampleCard>
           </div>

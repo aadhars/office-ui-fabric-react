@@ -7,9 +7,9 @@
 // --------------------------------------------------
 // Accordion styles
 
-.accordion-section {
+.accordionSection {
 
-    .title-container {
+    .titleContainer {
         margin: 16px 0px;
 
         div.chevron {
@@ -20,13 +20,13 @@
             padding-top: 4px; // not moving to common as this is only used in Section headers of accordion
         }
 
-        .description-container {
+        .descriptionContainer {
             margin-top: 2px;
             font-size: 12px;
             cursor: default;
         }
 
-        .accordion-section-header {
+        .accordionSectionHeader {
             width: 100%;
             font-size: 18px;
             white-space: nowrap;
@@ -34,7 +34,7 @@
             cursor: pointer;
             outline: none;
 
-            .accordion-section-label {
+            .accordionSectionLabel {
                 font-size: 15px;
                 max-width: 90%;
                 
@@ -46,7 +46,7 @@
                 padding-top: 2px;
             }
 
-            .accordion-section-line {
+            .accordionSectionLine {
                 padding: 6px 0px 0px 10px;
                 flex-grow: 1;
 
@@ -55,17 +55,17 @@
                 }
             }
 
-            .accordion-error {
+            .accordionError {
                 font-size: 16px;
             }
         }
     }
 
-    .content-container {
+    .contentContainer {
         margin-left: 0px;
     }
 
-    .empty-separator {
+    .emptySeparator {
         border-bottom: 1px solid black;
         margin-top: 15px;
         margin-bottom: 5px;
