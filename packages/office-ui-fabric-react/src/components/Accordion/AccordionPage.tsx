@@ -5,14 +5,13 @@ import {
   IComponentDemoPageProps,
   PropertiesTableSet
 } from '@uifabric/example-app-base';
-import { SearchBoxSmallExample } from './examples/SearchBox.Small.Example';
-import { SearchBoxFullSizeExample } from './examples/SearchBox.FullSize.Example';
+import { AccordionBasicExample } from './examples/Accordion.Basic.Example';
 import { FontClassNames } from '../../Styling';
 
 const SearchBoxSmallExampleCode = require('!raw-loader!office-ui-fabric-react/src/components/SearchBox/examples/SearchBox.Small.Example.tsx') as string;
 const SearchBoxFullSizeExampleCode = require('!raw-loader!office-ui-fabric-react/src/components/SearchBox/examples/SearchBox.FullSize.Example.tsx') as string;
 
-export class SearchBoxPage extends React.Component<IComponentDemoPageProps, {}> {
+export class AccordionPahe extends React.Component<IComponentDemoPageProps, {}> {
   public render() {
     return (
       <ComponentPage
@@ -21,10 +20,7 @@ export class SearchBoxPage extends React.Component<IComponentDemoPageProps, {}> 
         exampleCards={
           <div>
             <ExampleCard title='SearchBox' code={ SearchBoxSmallExampleCode }>
-              <SearchBoxSmallExample />
-            </ExampleCard>
-            <ExampleCard title='SearchBox - No Parent Container' code={ SearchBoxFullSizeExampleCode }>
-              <SearchBoxFullSizeExample />
+              <AccordionBasicExample />
             </ExampleCard>
           </div>
         }

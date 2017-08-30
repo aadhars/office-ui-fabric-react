@@ -14,11 +14,11 @@ import { TooltipHost, TooltipOverflowMode } from '../../Tooltip';
 import * as stylesImport from './Accordion.scss';
 const styles: any = stylesImport;
 
-export interface IAccordionState {
+export interface IAccordionSectionState {
   expanded: boolean;
 }
 
-export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAccordionState> {
+export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAccordionSectionState> {
 
   private _contentContainer: HTMLDivElement;
   private readonly _titleId: string = "accordion-label-id";
@@ -30,7 +30,7 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
     };
   }
 
-  public componentDidUpdate(prevProps: IAccordionSectionProps, prevState: IAccordionState): void {
+  public componentDidUpdate(prevProps: IAccordionSectionProps, prevState: IAccordionSectionState): void {
     // Get visible content into scroll view  
     if (this.state && this.state.expanded) {
       if (!prevState || prevState.expanded !== this.state.expanded && this._contentContainer) {
@@ -41,12 +41,12 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
 
   public render(): JSX.Element {
     const chevronIconClass: string = this.state.expanded ? "chevron bowtie-icon bowtie-chevron-up-light" : "chevron bowtie-icon bowtie-chevron-down-light";
-    let headerContent: JSX.Element = this._getHeaderContent();
+    let headerContent: JSX.Element | null = this._getHeaderContent();
     const accordionSectionDescription: string = this._getSectionDescription();
 
     return (
       <div className={css("accordion-section", this.props.className)}
-        ref={(element) => { this._contentContainer = element; }}>
+        ref={this._resolveRef("_contentContainer")}>
         <div
           className="title-container"
           role="heading"
@@ -98,12 +98,15 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
     this.setState({ expanded: show });
   }
 
-  private _getSectionDescription() {
+  private _getSectionDescription(): string {
+    let description: string | undefined;
     if (this.state.expanded) {
-      return this.props.expandedDescription;
+      description =  this.props.expandedDescription;
     } else {
-      return this.props.collpasedDescription;
+      description= this.props.collpasedDescription;
     }
+    description =  description ? description: "";
+    return description;
   }
 
   private _toggle = (): void => {
@@ -124,7 +127,7 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
     }
   }
 
-  private _getHeaderContent(): JSX.Element {
+  private _getHeaderContent(): JSX.Element | null {
     if (this.props.onRenderHeader) {
       return this.props.onRenderHeader(this.props, this._getDefaultSectionHeaderLabel);
     } else {
@@ -142,7 +145,7 @@ export class AccordionSection extends BaseComponent<IAccordionSectionProps, IAcc
       </div>);
   }
 
-  private _getBowtieHeader(props: IAccordionSectionProps): JSX.Element {
+  private _getBowtieHeader(props: IAccordionSectionProps): JSX.Element | undefined {
     return (
       props.iconProps && <Icon { ...this.props.iconProps } />
     );

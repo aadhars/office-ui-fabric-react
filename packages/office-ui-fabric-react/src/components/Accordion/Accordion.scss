@@ -15,32 +15,29 @@
         div.chevron {
             margin-left: 6px;
             margin-right: 0px;
-            font-size: $fontSizeML;
+            font-size: 15px;
             vertical-align: top;
             padding-top: 4px; // not moving to common as this is only used in Section headers of accordion
         }
 
         .description-container {
             margin-top: 2px;
-            font-size: $fontSize;
+            font-size: 12px;
             cursor: default;
         }
 
         .accordion-section-header {
             width: 100%;
-            @include input-display-flex;
-            font-size: $fontSizeML;
+            font-size: 18px;
             white-space: nowrap;
-            font-weight: $fontWeightRegular;
+            font-weight: normal;
             cursor: pointer;
             outline: none;
-            @include TextOverflowEllipsis();
-            @include outline-focus-ring();
 
             .accordion-section-label {
-                font-size: $fontSizeML;
+                font-size: 15px;
                 max-width: 90%;
-                @include TextOverflowEllipsis();
+                
             }
 
             .accordion-section-icon {
@@ -54,23 +51,22 @@
                 flex-grow: 1;
 
                 hr {
-                    @include horizontal-line
+                   
                 }
             }
 
             .accordion-error {
-                color: $accent1;
-                font-size: $fontSizeML;
+                font-size: 16px;
             }
         }
     }
 
     .content-container {
-        margin-left: 0;
+        margin-left: 0px;
     }
 
     .empty-separator {
-        border-bottom: 1px solid $secondary-light-2;
+        border-bottom: 1px solid black;
         margin-top: 15px;
         margin-bottom: 5px;
     }
